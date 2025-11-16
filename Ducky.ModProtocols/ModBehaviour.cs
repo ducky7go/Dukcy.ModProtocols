@@ -1,0 +1,29 @@
+﻿using Ducky.Sdk.Logging;
+using Ducky.Sdk.ModBehaviours;
+
+namespace Ducky.ModProtocols;
+
+public class ModBehaviour : ModBehaviourBase
+{
+    protected override void ModEnabled()
+    {
+        Log.Info("Ducky.ModProtocols Mod Enabled");
+        if (ModHttpV1.Instance == null)
+        {
+            Log.Info("ModHttpV1 instance not found, creating new GameObject and component.");
+            var go = new UnityEngine.GameObject(ModHttpV1.HubGameObjectName);
+            go.AddComponent<ModHttpV1>();
+        }
+
+        if (ModHttpV1.Instance != null)
+        {
+            Log.Info("ModHttpV1 instance found, activating hub.");
+            ModHttpV1.Instance.Active();
+        }
+    }
+
+    protected override void ModDisabled()
+    {
+        Log.Info("Ducky.SingleProject Mod Disabled");
+    }
+}
