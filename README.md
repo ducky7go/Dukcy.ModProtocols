@@ -2,6 +2,8 @@
 
 # ModProtocols - 模组间多协议通信框架
 
+> **当前状态**:本仓库目前只有工程骨架(`Ducky.ModProtocols/ModBehaviour.cs`,14 行,继承 `ModBehaviourBase` 并启用 `EnableMessageHubHost`)。下文描述的 ModHttpV1、`RegisterClient`/`UnregisterClient`、UniTask 等实现不在本仓库源码中,请以实际代码为准。
+
 ## 核心定位
 
 ModProtocols 是一套为游戏模组生态打造的多协议通信中间件，旨在为不同模组提供标准化、可扩展的交互能力。当前已实现 **ModHttpV1** 核心协议，后续将支持更多协议类型，构建完整的模组通信生态。

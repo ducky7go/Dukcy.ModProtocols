@@ -2,6 +2,8 @@ Language: [English](README_en.md) | [中文](README.md)
 
 # ModProtocols - Mod Interoperability Protocol Framework
 
+> **Current status**: this repository currently contains only a project skeleton (`Ducky.ModProtocols/ModBehaviour.cs`, 14 lines, derives from `ModBehaviourBase` and enables `EnableMessageHubHost`). The ModHttpV1, `RegisterClient`/`UnregisterClient` and UniTask implementation described below is not in this repository's source; treat the code as the source of truth.
+
 ## Core Positioning
 
 ModProtocols is a multi-protocol communication middleware designed for game mod ecosystems, aiming to provide standardized and extensible interaction capabilities for different mods. The **ModHttpV1** core protocol has been implemented, with more protocol types to be supported in the future to build a complete mod communication ecosystem.
