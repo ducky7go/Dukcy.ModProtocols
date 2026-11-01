@@ -28,7 +28,7 @@ This repo has no `openspec/` directory. OpenSpec for all `ducky7go-mono` sub-rep
 
 - `Ducky.ModProtocols/assets/info.ini` 的 `name` 必须与产出 DLL 文件名一致（规范要求），当前均为 `Ducky.ModProtocols`；修改模组名要同时改 `info.ini` 与 csproj 的 `ModName`。
 - `info.ini` 里没有 `version` 字段（规范中 `version` 为可选，打包工具默认 `1.0.0`）；发布前如需版本号，需要显式添加。
-- 提交信息：`git log` 仅有 `feat: Introduces OpenSpec for spec-driven development (#4)`（浅克隆）；`../../openspec/projects/Dukcy.ModProtocols/project.md` 声明格式为 `type: description`，主分支 `main`。
+- 提交信息：`git log` 可见 `feat: Introduces OpenSpec for spec-driven development (#4)`；`../../openspec/projects/Dukcy.ModProtocols/project.md` 声明格式为 `type: description`，主分支 `main`。
 - 变更提案走 OpenSpec（见上方 OpenSpec 说明）。
 
 ## 注意事项
