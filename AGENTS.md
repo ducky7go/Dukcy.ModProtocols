@@ -1,21 +1,7 @@
-<!-- OPENSPEC:START -->
-# OpenSpec Instructions
+## OpenSpec
 
-These instructions are for AI assistants working in this project.
+This repo has no `openspec/` directory. OpenSpec for all `ducky7go-mono` sub-repos lives in the parent repo: `../../openspec/` (workflow rules `../../openspec/AGENTS.md`, specs `../../openspec/specs/`, changes `../../openspec/changes/`). This repo's former project context is `../../openspec/projects/Dukcy.ModProtocols/project.md`.
 
-Always open `@/openspec/AGENTS.md` when the request:
-- Mentions planning or proposals (words like proposal, spec, change, plan)
-- Introduces new capabilities, breaking changes, architecture shifts, or big performance/security work
-- Sounds ambiguous and you need the authoritative spec before coding
-
-Use `@/openspec/AGENTS.md` to learn:
-- How to create and apply change proposals
-- Spec format and conventions
-- Project structure and guidelines
-
-Keep this managed block so 'openspec update' can refresh the instructions.
-
-<!-- OPENSPEC:END -->
 
 # Dukcy.ModProtocols
 
@@ -29,7 +15,6 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 - `Ducky.ModProtocols/Ducky.ModProtocols.csproj` - 项目文件，`ModName` 为 `Ducky.ModProtocols`，唯一包引用 `Ducky.Sdk` `0.1.7-dev.2`（`PrivateAssets=all`）；若存在 `..\Local.props` 会被导入（该文件被 gitignore，用于本机路径等本地设置）。
 - `Ducky.ModProtocols/ModBehaviour.cs` - 唯一的源文件，共 14 行：继承 `ModBehaviourBase`，设置 `EnableMessageHubHost = true`，`ModEnabled`/`ModDisabled` 为空。
 - `Ducky.ModProtocols/assets/` - 模组元数据与发布素材：`info.ini`（`name`、`displayName`、`description`、`tags`、`publishedFileId`）、`preview.png`、`description/{en,zh}.md`、`title/{en,zh}.md`。目录布局符合 `ducky7go/dukcy-package-spec`。
-- `openspec/AGENTS.md`、`openspec/project.md` - OpenSpec 流程与项目背景（没有 `specs/`、`changes/` 子目录）。
 - `.editorconfig` - UTF-8、LF、4 空格缩进（json/yaml/sh 为 2 空格、csproj/props 缩进 2）、ReSharper 规则（`if/for/foreach/while` 必须带大括号）。
 
 ## 构建 / 测试 / 运行
@@ -43,13 +28,13 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 
 - `Ducky.ModProtocols/assets/info.ini` 的 `name` 必须与产出 DLL 文件名一致（规范要求），当前均为 `Ducky.ModProtocols`；修改模组名要同时改 `info.ini` 与 csproj 的 `ModName`。
 - `info.ini` 里没有 `version` 字段（规范中 `version` 为可选，打包工具默认 `1.0.0`）；发布前如需版本号，需要显式添加。
-- 提交信息：`git log` 仅有 `feat: Introduces OpenSpec for spec-driven development (#4)`（浅克隆）；`openspec/project.md` 声明格式为 `type: description`，主分支 `main`。
-- 变更提案走 OpenSpec（见上方受管块）。
+- 提交信息：`git log` 仅有 `feat: Introduces OpenSpec for spec-driven development (#4)`（浅克隆）；`../../openspec/projects/Dukcy.ModProtocols/project.md` 声明格式为 `type: description`，主分支 `main`。
+- 变更提案走 OpenSpec（见上方 OpenSpec 说明）。
 
 ## 注意事项
 
-- README、`description/*.md` 与 `openspec/project.md` 描述了 ModHttpV1 协议、`RegisterClient`/`UnregisterClient`、UniTask、队列容量 200 等，但本仓库源码里没有这些实现（全仓库 grep `UniTask|ModHttp|RegisterClient` 无 `.cs`/`.csproj` 命中）。实际的消息中枢能力应来自 `Ducky.Sdk`（`ModBehaviourBase.EnableMessageHubHost`）；改动前先确认逻辑所在位置，不要假设这里有协议代码。
-- `openspec/project.md` 中"单元/集成/性能测试"的测试策略在仓库中没有对应项目，属于愿景描述。
+- README、`description/*.md` 与 `../../openspec/projects/Dukcy.ModProtocols/project.md` 描述了 ModHttpV1 协议、`RegisterClient`/`UnregisterClient`、UniTask、队列容量 200 等，但本仓库源码里没有这些实现（全仓库 grep `UniTask|ModHttp|RegisterClient` 无 `.cs`/`.csproj` 命中）。实际的消息中枢能力应来自 `Ducky.Sdk`（`ModBehaviourBase.EnableMessageHubHost`）；改动前先确认逻辑所在位置，不要假设这里有协议代码。
+- `../../openspec/projects/Dukcy.ModProtocols/project.md` 中"单元/集成/性能测试"的测试策略在仓库中没有对应项目，属于愿景描述。
 - `Local.props`、`bin/`、`obj/` 被 gitignore，不要提交。
 
 ## 相关仓库
