@@ -1,6 +1,6 @@
 ## OpenSpec
 
-This repo has no `openspec/` directory. OpenSpec for all `ducky7go-mono` sub-repos lives in the parent repo: `../../openspec/` (workflow rules `../../openspec/AGENTS.md`, specs `../../openspec/specs/`, changes `../../openspec/changes/`). This repo's former project context is `../../openspec/projects/Dukcy.ModProtocols/project.md`.
+This repo has no `openspec/` directory. OpenSpec for all `ducky7go-mono` sub-repos lives in the parent repo: `../../openspec/` (workflow rules `../../openspec/AGENTS.md`, specs `../../openspec/specs/`, changes `../../openspec/changes/`).
 
 
 # Dukcy.ModProtocols
@@ -28,13 +28,12 @@ This repo has no `openspec/` directory. OpenSpec for all `ducky7go-mono` sub-rep
 
 - `Ducky.ModProtocols/assets/info.ini` 的 `name` 必须与产出 DLL 文件名一致（规范要求），当前均为 `Ducky.ModProtocols`；修改模组名要同时改 `info.ini` 与 csproj 的 `ModName`。
 - `info.ini` 里没有 `version` 字段（规范中 `version` 为可选，打包工具默认 `1.0.0`）；发布前如需版本号，需要显式添加。
-- 提交信息：`git log` 可见 `feat: Introduces OpenSpec for spec-driven development (#4)`；`../../openspec/projects/Dukcy.ModProtocols/project.md` 声明格式为 `type: description`，主分支 `main`。
+- 提交信息：`git log` 可见 `feat: Introduces OpenSpec for spec-driven development (#4)`。
 - 变更提案走 OpenSpec（见上方 OpenSpec 说明）。
 
 ## 注意事项
 
-- README、`description/*.md` 与 `../../openspec/projects/Dukcy.ModProtocols/project.md` 描述了 ModHttpV1 协议、`RegisterClient`/`UnregisterClient`、UniTask、队列容量 200 等，但本仓库源码里没有这些实现（全仓库 grep `UniTask|ModHttp|RegisterClient` 无 `.cs`/`.csproj` 命中）。实际的消息中枢能力应来自 `Ducky.Sdk`（`ModBehaviourBase.EnableMessageHubHost`）；改动前先确认逻辑所在位置，不要假设这里有协议代码。
-- `../../openspec/projects/Dukcy.ModProtocols/project.md` 中"单元/集成/性能测试"的测试策略在仓库中没有对应项目，属于愿景描述。
+- README 与 `description/*.md` 描述了 ModHttpV1 协议、`RegisterClient`/`UnregisterClient`、UniTask、队列容量 200 等，但本仓库源码里没有这些实现（全仓库 grep `UniTask|ModHttp|RegisterClient` 无 `.cs`/`.csproj` 命中）。实际的消息中枢能力应来自 `Ducky.Sdk`（`ModBehaviourBase.EnableMessageHubHost`）；改动前先确认逻辑所在位置，不要假设这里有协议代码。
 - `Local.props`、`bin/`、`obj/` 被 gitignore，不要提交。
 
 ## 相关仓库
