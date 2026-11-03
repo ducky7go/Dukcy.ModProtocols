@@ -1,0 +1,19 @@
+{
+ "variants": {
+  "preview": {
+   "positive": "masterpiece, best quality, safe, no humans, duck, envelope, cable, paper airplane, glowing, dark, outdoors, smile, flat color, bold outlines, cartoon style, vivid colors, teal and amber, connected, playful, Two cartoon ducks stand left and center of the frame, linked by a glowing cable that carries a bright envelope between them while a small paper airplane loops above. One duck holds up its wing in greeting and the other tilts its head to listen. Warm amber light comes from the upper right and deep teal shadows fill the night sky. The lower right of the frame is a dark, quiet ground with a soft vignette.",
+   "negative": "worst quality, low quality, watermark, logo, text, signature, letters, humans, blurry, deformed, border, frame, tiny subject, empty background",
+   "width": 1344,
+   "height": 768,
+   "unet": "anima-turbo-v1.1.safetensors",
+   "sampler": {
+    "steps": 10,
+    "cfg": 2,
+    "sampler": "euler",
+    "scheduler": "simple"
+   },
+   "seed": 11,
+   "_note": "img-gen steam-preview base: render with ab-prompt-test.mjs --seeds 11, then compose-preview.sh --base art/preview-base.png --out assets/preview.png"
+  }
+ }
+}
